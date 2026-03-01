@@ -33,8 +33,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Text('State Model Added')),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyCatalogPlaceholder(),
+        '/cart': (context) => const MyCartPlaceholder(),
+      },
     );
   }
+}
+
+class MyCatalogPlaceholder extends StatelessWidget {
+  const MyCatalogPlaceholder({super.key});
+  @override
+  Widget build(BuildContext context) => const Scaffold(body: Text('Catalog'));
+}
+
+class MyCartPlaceholder extends StatelessWidget {
+  const MyCartPlaceholder({super.key});
+  @override
+  Widget build(BuildContext context) => const Scaffold(body: Text('Cart'));
 }
